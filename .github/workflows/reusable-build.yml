@@ -29,8 +29,7 @@ jobs:
     permissions:
       contents: read      
       packages: write    
-      id-token: write    
-
+      
     steps:
       - name: Checkout target repository (the Python repo)
         uses: actions/checkout@v4
