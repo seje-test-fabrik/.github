@@ -43,7 +43,6 @@ jobs:
           repository: ${{ inputs.target_repo }}  
           ref: ${{ inputs.target_ref }}
           path: source
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout central .github repo (this repo) to get Dockerfile/templates
         uses: actions/checkout@v4
@@ -51,7 +50,6 @@ jobs:
           repository: seje-test-fabrik/.github     
           ref: ${{ github.ref }}                 
           path: central
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up QEMU and buildx
         uses: docker/setup-buildx-action@v3
@@ -61,7 +59,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ github.token }}
 
       - name: Build and push image
         uses: docker/build-push-action@v5
