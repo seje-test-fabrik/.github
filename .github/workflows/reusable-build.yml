@@ -20,12 +20,7 @@ on:
       dockerfile_path:
         required: false
         type: string
-        default: "./Dockerfile"
-    secrets:
-      GITHUB_TOKEN:      
-        required: true
-      CR_PAT:
-        required: false   
+        default: "./Dockerfile"   
 
 jobs:
   build:
