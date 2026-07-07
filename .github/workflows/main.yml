@@ -1,0 +1,20 @@
+name: Idle 2 Minutes (self-hosted test)
+
+# Run manually from the Actions tab, or on push to main.
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  idle:
+    name: Do nothing for 2 minutes
+    runs-on: self-hosted
+    timeout-minutes: 5
+    steps:
+      - name: Sleep 120 seconds
+        run: |
+          echo "Runner: $RUNNER_NAME"
+          echo "Started idling at $(date)"
+          sleep 120
+          echo "Done idling at $(date)"
